@@ -178,6 +178,12 @@ resource "aws_security_group" "site-sg" {
   description = "Used for access to the EC2 instance"
   vpc_id      = "${aws_vpc.vpc.id}"
 
+  tags {
+    Name      = "site-sg"
+    Group     = "site-sg"
+    ManagedBy = "Terraform"
+  }
+
   # SSH
   ingress {
     from_port   = 22
@@ -214,6 +220,12 @@ resource "aws_security_group" "public-sg" {
   name        = "public-sg"
   description = "Used for public and private instances for load balancer access"
   vpc_id      = "${aws_vpc.vpc.id}"
+
+  tags {
+    Name      = "public-sg"
+    Group     = "public-sg"
+    ManagedBy = "Terraform"
+  }
 
   # SSH
   ingress {
@@ -254,8 +266,13 @@ resource "aws_security_group" "private-sg" {
   description = "Used for private instances"
   vpc_id      = "${aws_vpc.vpc.id}"
 
-  # Access from other security groups
+  tags {
+    Name      = "private-sg"
+    Group     = "private-sg"
+    ManagedBy = "Terraform"
+  }
 
+  # Access from other security groups
   ingress {
     from_port   = 0
     to_port     = 0
@@ -276,10 +293,16 @@ resource "aws_security_group" "rds-sg" {
   description = "Used for DB instances"
   vpc_id      = "${aws_vpc.vpc.id}"
 
+  tags {
+    Name      = "rds-sg"
+    Group     = "rds-sg"
+    ManagedBy = "Terraform"
+  }
+
   # SQL access from public/private security group
   ingress {
-    from_port   = 3306
-    to_port     = 3306
+    from_port   = 5432
+    to_port     = 5432
     protocol    = "tcp"
     cidr_blocks = ["${var.vpc_cidrs}"]
   }

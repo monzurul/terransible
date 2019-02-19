@@ -1,7 +1,7 @@
-terraform-projectA
+terraform-projecta
 ===
 
-`projectA` infrastructure managed by Terraform.
+`projecta` infrastructure managed by Terraform.
 
 ## Provisioning Infrastructure
 Environments are managed with [Terraform Workspaces](https://www.terraform.io/docs/state/workspaces.html).

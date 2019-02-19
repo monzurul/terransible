@@ -19,9 +19,9 @@ variable "rds_db_storage_type" {}
 variable "rds_db_user" {}
 variable "rds_db_alias" {}
 variable "rds_subnetgroup" {}
-variable "rds_security_group_id" {}
+variable "rds_security_group" {}
 variable "code_pipeline_backend_branch" {}
 variable "code_pipeline_frontend_branch" {}
-variable "ec2_security_group_id" {}
-variable "vpc_id" {}
+variable "ec2_security_group" {}
+variable "github_per_token" {}
 variable "subnet_id" {}

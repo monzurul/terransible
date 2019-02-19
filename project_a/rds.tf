@@ -1,4 +1,4 @@
-resource "aws_db_instance" "RDS" {
+resource "aws_db_instance" "rds" {
   allocated_storage    = "${var.rds_db_allocated_storage}"
   storage_type         = "${var.rds_db_storage_type}"
   engine               = "${var.rds_db_engine}"
@@ -11,8 +11,8 @@ resource "aws_db_instance" "RDS" {
   multi_az             = "${var.rds_db_multi_az}"
   db_subnet_group_name = "${var.rds_subnetgroup}"
 
-  vpc_security_group_ids  = ["${var.rds_security_group_id}"]
-  parameter_group_name    = "${var.rds_db_parameter_group_name}"
+  vpc_security_group_ids  = ["${var.rds_security_group}"]
+
   backup_retention_period = 3
   publicly_accessible     = true
   skip_final_snapshot     = true

@@ -127,7 +127,7 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
 EOF
 }
 
-resource "aws_codepipeline" "backend-projectA" {
+resource "aws_codepipeline" "backend-projecta" {
   name     = "${var.project_name}-backend-${var.environment}"
   role_arn = "${aws_iam_role.codepipeline_role.arn}"
 
@@ -176,7 +176,7 @@ resource "aws_codepipeline" "backend-projectA" {
   }
 }
 
-resource "aws_codepipeline" "frontend-projectA" {
+resource "aws_codepipeline" "frontend-projecta" {
   name     = "${var.project_name}-frontend-${var.environment}"
   role_arn = "${aws_iam_role.codepipeline_role.arn}"
 
